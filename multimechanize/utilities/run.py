@@ -169,7 +169,7 @@ def run_test(project_name, cmd_opts, remote_starter=None):
 
 def rerun_results(project_name, cmd_opts, results_dir):
     output_dir = '%s/%s/results/%s/' % (cmd_opts.projects_dir, project_name, results_dir)
-    saved_config = '%s/config.cfg' % output_dir
+    saved_config = '%s/%s/config.cfg' % (cmd_opts.projects_dir, project_name)
     run_time, rampup, results_ts_interval, console_logging, progress_bar, results_database, post_run_script, xml_report, user_group_configs = configure(project_name, cmd_opts, config_file=saved_config)
     print '\n\nanalyzing results...\n'
     results.output_results(output_dir, 'results.csv', run_time, rampup, results_ts_interval, user_group_configs, xml_report)
